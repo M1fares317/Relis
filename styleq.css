@@ -1,0 +1,461 @@
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background: #fff;
+  color: #252525;
+}
+
+.container {
+  position: relative;
+  width: 1440px;
+  min-height: 3000px;
+  margin: 0 auto;
+  background: #FFFFFF;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+
+header {
+  position: absolute;
+  width: 1140px;
+  left: 150px;
+  top: 32px;
+  height: 40px;
+  z-index: 10;
+}
+
+.right-icons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.lang-currency {
+  display: flex;
+  gap: 30px;
+  font-size: 18px;
+  font-weight: 300;
+  color: #252525;
+}
+
+.user-icons {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid #252525;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.icon-btn img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(224, 190, 162, 0.12);
+  transform: scale(1.08);
+  border-color: #E0BEA2;
+}
+
+.icon-btn:hover img {
+  transform: scale(1.15);
+}
+
+.hamburger span {
+  background: #252525;
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.menu a {
+  color: #252525;
+  text-decoration: none;
+  font-weight: 300;
+  margin: 0 20px;
+}
+
+.menu .active {
+  color: #E0BEA2;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Breadcrumbs
+   ========================================================================== */
+
+.breadcrumbs {
+  position: absolute;
+  left: 150px;
+  top: 95px;
+  font-size: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.breadcrumbs span:not(:last-child)::after {
+  content: "/";
+  margin-left: 12px;
+  color: #E0BEA2;
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.sidebar {
+  position: absolute;
+  width: 150px;
+  left: 150px;
+  top: 144px;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+.sidebar a {
+  display: block;
+  font-size: 16px;
+  line-height: 28px;
+  color: #252525;
+  text-decoration: none;
+}
+
+.sidebar a:hover,
+.sidebar .view-all {
+  color: #E0BEA2;
+}
+
+/* ==========================================================================
+   Filters
+   ========================================================================== */
+
+.filters {
+  position: absolute;
+  left: 330px;
+  top: 148px;
+  display: flex;
+  gap: 40px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #E0BEA2;
+  transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   Products Grid + Об'ємність / neumorphism / hover
+   ========================================================================== */
+
+.products {
+  position: absolute;
+  left: 330px;
+  top: 197px;
+  width: 960px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px 30px;
+  padding-bottom: 120px;
+}
+
+.product-card {
+  width: 310px;
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  
+  /* neumorphism + об'єм */
+  box-shadow: 
+    8px 8px 16px rgba(0,0,0,0.08),
+    -8px -8px 16px rgba(255,255,255,0.9);
+  
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateZ(0);
+}
+
+.product-card:hover {
+  transform: 
+    translateY(-12px) 
+    translateZ(20px) 
+    scale(1.04);
+  
+  box-shadow: 
+    14px 14px 28px rgba(0,0,0,0.12),
+    -14px -14px 28px rgba(255,255,255,0.95);
+}
+
+/* блиск / світло зверху */
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.35) 0%,
+    rgba(255,255,255,0.08) 40%,
+    transparent 60%
+  );
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+/* підсвітка знизу на hover */
+.product-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  width: 80%;
+  height: 60px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(224, 190, 162, 0.22) 0%,
+    transparent 70%
+  );
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.4s ease;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.product-card:hover::after {
+  opacity: 1;
+  bottom: -10px;
+}
+
+.image-wrapper {
+  width: 310px;
+  height: 360px;
+  background: #f8f6f4;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.product-card:hover .image-wrapper img {
+  transform: scale(1.08) translateZ(15px);
+}
+
+.favorite {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: #E0BEA2;
+  border-radius: 0 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.product-card:hover .favorite {
+  transform: scale(1.15) translateY(-2px);
+}
+
+.new-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;               /* змінив з right на left — зручніше */
+  color: #E0BEA2;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.colors {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.color-dot.border {
+  background: white;
+  border: 0.3px solid #252525;
+}
+
+.product-title {
+  margin-top: 12px;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.35s ease;
+  transform: translateZ(10px);
+}
+
+.price {
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.35s ease;
+  transform: translateZ(10px);
+}
+
+.product-card:hover .product-title {
+  color: #E0BEA2;
+  transform: translateY(-3px) translateZ(15px);
+}
+
+.product-card:hover .price {
+  transform: translateY(-2px) translateZ(12px);
+}
+
+.sizes {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 16px;
+  color: rgba(37,37,37,0.5);
+}
+
+.sizes span {
+  margin: 0 6px;
+}
+
+/* ==========================================================================
+   Decorative title
+   ========================================================================== */
+
+.best-title {
+  position: absolute;
+  left: 568px;
+  top: -15px;
+  font-family: 'Purple Purse', cursive;
+  font-size: 96px;
+  line-height: 120px;
+  color: #E0BEA2;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  position: absolute;
+  width: 1140px;
+  left: 150px;
+  top: 2250px;  
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.footer-column h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 8px;
+}
+
+.copyright {
+  position: absolute;
+  left: 50%;
+  bottom: 600px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Кастомний курсор
+   ========================================================================== */
+
+#cursor-follower {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #E0BEA2;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.15s ease-out, opacity 0.3s ease, background 0.3s ease;
+    background: rgba(224, 190, 162, 0.1);
+}

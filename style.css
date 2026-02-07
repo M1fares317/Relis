@@ -1,0 +1,538 @@
+/* ==========================================================================
+   Глобальні стилі
+   ========================================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 1440px;
+    height: 2206px;
+    background: #FFFFFF;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body.custom-cursor-active {
+    cursor: none;
+}
+
+a,
+button,
+.category-item,
+.user-icons div {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   Кастомний курсор
+   ========================================================================== */
+
+#cursor-follower {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #E0BEA2;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.15s ease-out, opacity 0.3s ease, background 0.3s ease;
+    background: rgba(224, 190, 162, 0.1);
+}
+
+/* ==========================================================================
+   Шапка (header)
+   ========================================================================== */
+
+.main-header {
+    position: absolute;
+    width: 1140px;
+    height: 27px;
+    left: 126px;
+    top: 27px;
+    z-index: 100;
+}
+
+.burger-menu div {
+    position: absolute;
+    height: 4px;
+    background: #FFFFFF;
+}
+
+.line-1 { width: 34px; top: 0; }
+.line-2 { width: 26px; top: 10px; }
+.line-3 { width: 18px; top: 20px; }
+
+.top-nav {
+    position: absolute;
+    left: 138px;
+    top: 4px;
+    display: flex;
+    gap: 25px;
+}
+
+.top-nav a {
+    font-family: 'Raleway';
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+.top-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #E0BEA2;
+    transition: 0.3s;
+}
+
+.top-nav a:hover::after {
+    width: 100%;
+}
+
+.settings {
+    position: absolute;
+    left: 801px;
+    top: 0;
+    display: flex;
+    gap: 20px;
+    color: #FFFFFF;
+    font-family: 'Raleway';
+}
+
+.user-icons {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    display: flex;
+    gap: 30px;
+}
+
+.user-icons div {
+    width: 25px;
+    height: 25px;
+    border: 1.5px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   Шапка (header) — user icons
+   ========================================================================== */
+
+.user-icons {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid #FFFFFF;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.icon-btn img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);   /* робить іконку білою */
+    transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: scale(1.08);
+}
+
+.icon-btn:hover img {
+    transform: scale(1.18);
+}
+
+/* щоб кастомний курсор працював і на цих кнопках */
+.icon-btn {
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   секція
+   ========================================================================== */
+
+.image-bg {
+    position: absolute;
+    height: 900px;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-left  { width: 479px;  left: 0;       background-image: url('https://www.tipsyelves.com/cdn/shop/files/TE-CSW571_M_Deck_The_Halls_Game_Ugly_Christmas_Sweater_004.jpg?v=1761593342'); }
+.img-center{ width: 483px;  left: 479px;   background-image: url('https://www.tipsyelves.com/cdn/shop/files/TE-CSW499_TE-CSW245_CS9_SET1_L4_013.jpg?v=1764096358&width=1920'); }
+.img-right { width: 482px;  left: 960px; top: -6px; background-image: url('https://www.tipsyelves.com/cdn/shop/files/TE-CSW566_CS9_SET1_L1_021.jpg?v=1764096072'); }
+
+.main-logo {
+    position: absolute;
+    width: 273px;
+    left: 584px;
+    top: -20px;
+    font-family: 'Purple Purse';
+    font-size: 96px;
+    color: #FFFFFF;
+    text-align: center;
+    z-index: 5;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-content {
+    position: absolute;
+    width: 375px;
+    left: 521px;
+    top: 220px;
+    text-align: center;
+    z-index: 5;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero-title {
+    font-family: 'Prosto One';
+    font-size: 46px;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.divider {
+    width: 120px;
+    height: 1px;
+    background: #FFFFFF;
+    margin: 17px auto;
+}
+
+.hero-link {
+    font-family: 'Radio Canada Big';
+    color: #FFFFFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+/* ==========================================================================
+   Каталог / Сторінка товарів
+   ========================================================================== */
+
+.catalog-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 150px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+}
+
+.catalog-header a,
+.catalog-header .settings {
+    color: #252525;
+}
+
+.catalog-header .burger-menu div {
+    background: #252525;
+}
+
+.main-logo-small {
+    font-family: 'Purple Purse';
+    font-size: 40px;
+    color: #E0BEA2;
+    margin: 0;
+}
+
+.breadcrumb {
+    margin: 20px 150px;
+    font-family: 'Raleway';
+    font-size: 14px;
+    color: #828282;
+}
+
+.catalog-container {
+    display: flex;
+    padding: 0 150px;
+    gap: 50px;
+}
+
+.sidebar {
+    width: 200px;
+}
+
+.sidebar h3 {
+    font-family: 'Raleway';
+    font-weight: 300;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    font-family: 'Raleway';
+    font-size: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    color: #252525;
+}
+
+.sidebar li.active {
+    font-weight: bold;
+    color: #E0BEA2;
+}
+
+.products-grid {
+    flex: 1;
+}
+
+.filters-bar {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.filter-item {
+    font-family: 'Raleway';
+    font-size: 16px;
+    color: #252525;
+    cursor: pointer;
+}
+
+.products-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ==========================================================================
+   Картка товару
+   ========================================================================== */
+
+.product-card {
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-img {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 4px;
+}
+
+.wishlist-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #E0BEA2;
+    cursor: pointer;
+}
+
+.product-info {
+    padding: 15px 0;
+    font-family: 'Raleway';
+}
+
+.p-name {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.new-tag {
+    color: #E0BEA2;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-left: 5px;
+}
+
+.p-price {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.p-sizes {
+    font-size: 12px;
+    color: #828282;
+    margin: 5px 0;
+}
+
+.p-colors {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
+.color.white { background: #fff; }
+.color.blue  { background: #2D3A4B; }
+.color.beige { background: #E0BEA2; }
+
+/* ==========================================================================
+   Категорії (середня секція)
+   ========================================================================== */
+
+.section-title {
+    position: absolute;
+    left: 294px;
+    top: 1000px;
+    font-family: 'Raleway';
+    font-size: 36px;
+}
+
+.category-item {
+    position: absolute;
+    width: 273.75px;
+    height: 450px;
+    top: 1092px;
+    background-size: cover;
+    background-position: center;
+    transition: 0.4s;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.category-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.item-kurky { left: 294px;   background-image: url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400'); }
+.item-palto { left: 582.75px; background-image: url('https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400'); }
+.item-shuby { left: 871.5px;  background-image: url('https://images.shopsycdn.com/products/f0/4c/f04cb136ac4a524febfa76de3a2614a4.webp'); }
+
+.cat-label {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    background: rgba(224, 190, 162, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway';
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   Підписка та футер
+   ========================================================================== */
+
+.subscribe-title {
+    position: absolute;
+    width: 600px;
+    left: 420px;
+    top: 1642px;
+    font-family: 'Raleway';
+    font-size: 36px;
+    text-align: center;
+}
+
+.subscribe-input {
+    position: absolute;
+    width: 600px;
+    height: 50px;
+    left: 420px;
+    top: 1734px;
+    border: 1px solid #252525;
+    text-align: center;
+}
+
+.subscribe-button {
+    position: absolute;
+    width: 600px;
+    height: 50px;
+    left: 420px;
+    top: 1804px;
+    background: #E0BEA2;
+    color: #FFFFFF;
+    border: none;
+    font-family: 'Raleway';
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.main-footer {
+    position: absolute;
+    width: 1140px;
+    left: 150px;
+    top: 2012px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-col h3 {
+    font-family: 'Raleway';
+    font-size: 20px;
+}
+
+.footer-col p {
+    font-family: 'Raleway';
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.copyright {
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Raleway';
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   Анімації
+   ========================================================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
